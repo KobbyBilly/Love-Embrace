@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate — Love Embrace Global Outreach</title>
+<link rel="icon" type="image/png" href="lefavicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9963C;
+  --gold-light: #E8B86D;
+  --gold-pale: #F5E6C8;
+  --deep: #1A0E05;
+  --brown: #3D2010;
+  --warm: #7A4520;
+  --cream: #FBF6EE;
+  --white: #FFFFFF;
+  --text: #2C1A0A;
+  --muted: #7A6555;
+  --border: rgba(201,150,60,0.25);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; }
+
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(26,14,5,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw;
+  height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px; cursor:pointer;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width:38px; height:38px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600;
+  color: var(--white); line-height:1.1;
+}
+.nav-logo-text span { color: var(--gold); display:block; font-size:.75rem; font-weight:300; letter-spacing:.12em; text-transform:uppercase; }
+
+.nav-links { display: flex; gap:8px; list-style:none; }
+.nav-links li a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: .85rem; letter-spacing: .06em; text-transform: uppercase;
+  padding: 8px 14px; border-radius: 4px; transition: all .2s;
+}
+.nav-links li a:hover { color: var(--gold); }
+.nav-links li a.active { color: var(--gold); }
+.nav-links li a.nav-donate {
+  background: var(--gold); color: var(--deep); font-weight:600; border-radius:4px;
+}
+.nav-links li a.nav-donate:hover { background: var(--gold-light); }
+
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; transition:.3s; }
+
+.mobile-menu {
+  display:none; position:fixed; top:72px; left:0; right:0; z-index:99;
+  background: rgba(26,14,5,0.98); padding:24px 5vw;
+  flex-direction:column; gap:4px; border-bottom:1px solid var(--border);
+}
+.mobile-menu.open { display:flex; }
+.mobile-menu a {
+  color:rgba(255,255,255,0.8); text-decoration:none;
+  font-size:.95rem; padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  letter-spacing:.04em; text-transform:uppercase; transition:.2s;
+}
+.mobile-menu a:hover { color:var(--gold); }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--brown) 100%);
+  padding: 80px 5vw 64px;
+  padding-top: 152px;
+  position:relative; overflow:hidden;
+}
+.page-hero::after {
+  content:''; position:absolute; bottom:-60px; right:-60px;
+  width:350px; height:350px; border-radius:50%;
+  background:radial-gradient(circle, rgba(201,150,60,0.15) 0%, transparent 70%);
+  pointer-events:none;
+}
+.page-hero-inner { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+.page-hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,5vw,3.8rem); font-weight:700;
+  color:var(--white); line-height:1.1;
+}
+.page-hero h1 span { color:var(--gold); }
+.page-hero p { color:rgba(255,255,255,0.65); margin-top:16px; max-width:560px; line-height:1.8; }
+
+/* ── SECTION ── */
+.section { padding: 96px 5vw; position:relative; z-index:1; }
+.container { max-width:1200px; margin:0 auto; }
+.section-label {
+  font-size:.75rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); font-weight:500; margin-bottom:12px; display:block;
+}
+.divider {
+  width:60px; height:3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin:20px 0; border-radius:2px;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 32px; border-radius:4px;
+  font-family:'Outfit',sans-serif; font-size:.9rem; font-weight:500;
+  letter-spacing:.06em; text-transform:uppercase;
+  cursor:pointer; border:none; text-decoration:none; transition: all .25s;
+}
+.btn-gold { background:var(--gold); color:var(--deep); }
+.btn-gold:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 8px 24px rgba(201,150,60,0.35); }
+
+/* ── DONATE PAGE ── */
+.donate-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:56px; }
+
+.donate-form-wrap {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:16px; padding:40px;
+}
+.donate-form-wrap h3 { font-family:'Cormorant Garamond',serif; font-size:1.7rem; color:var(--deep); margin-bottom:8px; }
+.donate-form-wrap .sub { color:var(--muted); font-size:.88rem; margin-bottom:28px; }
+
+.form-group { margin-bottom:20px; }
+.form-group label { display:block; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; font-weight:500; }
+.form-group input, .form-group textarea, .form-group select {
+  width:100%; padding:12px 16px;
+  border:1.5px solid var(--border); border-radius:8px;
+  font-family:'Outfit',sans-serif; font-size:.9rem; color:var(--text);
+  background:var(--cream); transition:.2s; outline:none;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color:var(--gold); background:var(--white);
+  box-shadow:0 0 0 3px rgba(201,150,60,0.12);
+}
+.form-group select { appearance:none; cursor:pointer; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+
+.amount-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:20px; }
+.amount-btn {
+  padding:14px 10px; border-radius:8px; border:1.5px solid var(--border);
+  background:var(--cream); color:var(--text); font-family:'Outfit',sans-serif;
+  font-size:.9rem; font-weight:500; cursor:pointer; text-align:center; transition:.25s;
+}
+.amount-btn:hover, .amount-btn.selected {
+  border-color:var(--gold); background:var(--gold-pale); color:var(--warm);
+}
+
+.custom-amount { display:flex; align-items:center; gap:0; margin-bottom:20px; }
+.currency-badge {
+  background:var(--gold); color:var(--deep); padding:12px 14px;
+  border-radius:8px 0 0 8px; font-weight:600; font-size:.9rem;
+}
+.custom-amount input {
+  flex:1; padding:12px 16px; border:1.5px solid var(--border); border-left:none;
+  border-radius:0 8px 8px 0; font-family:'Outfit',sans-serif; font-size:.95rem;
+  color:var(--text); background:var(--cream); outline:none; transition:.2s;
+}
+.custom-amount input:focus { border-color:var(--gold); background:var(--white); }
+
+.impact-use-label { font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:10px; display:block; }
+.use-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:24px; }
+.use-opt {
+  border:1.5px solid var(--border); border-radius:8px; padding:10px 12px;
+  display:flex; align-items:center; gap:8px; cursor:pointer; transition:.2s;
+  font-size:.84rem; color:var(--muted);
+}
+.use-opt:hover, .use-opt.selected { border-color:var(--gold); color:var(--warm); background:var(--gold-pale); }
+.use-opt input[type=radio] { accent-color:var(--gold); }
+
+.payment-methods { margin:20px 0; }
+.pm-label { font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:10px; }
+.pm-grid { display:flex; gap:8px; flex-wrap:wrap; }
+.pm-chip {
+  border:1.5px solid var(--border); border-radius:6px; padding:8px 14px;
+  font-size:.8rem; color:var(--muted); cursor:pointer; transition:.2s;
+  background:var(--cream); display:flex; align-items:center; gap:6px;
+}
+.pm-chip:hover, .pm-chip.active { border-color:var(--gold); color:var(--warm); background:var(--gold-pale); }
+
+.form-success {
+  background:#E8F5E9; border:1px solid #81C784; border-radius:8px;
+  padding:16px 20px; color:#2E7D32; font-size:.9rem; display:none; margin-bottom:16px;
+}
+.form-success.show { display:block; }
+
+/* Impact side */
+.impact-cards { display:flex; flex-direction:column; gap:16px; margin-top:24px; }
+.impact-item {
+  background:var(--white); border:1px solid var(--border); border-radius:10px;
+  padding:20px; display:flex; align-items:center; gap:16px;
+}
+.impact-item-icon {
+  font-size:24px; width:48px; height:48px; background:var(--gold-pale);
+  border-radius:8px; display:flex; align-items:center; justify-content:center; min-width:48px;
+}
+.impact-item-text strong { display:block; color:var(--deep); font-size:.92rem; margin-bottom:2px; }
+.impact-item-text span { color:var(--muted); font-size:.82rem; }
+
+.trust-badges { display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
+.trust-badge {
+  background:var(--gold-pale); border:1px solid rgba(201,150,60,0.3);
+  border-radius:20px; padding:6px 14px; font-size:.75rem; color:var(--warm);
+  letter-spacing:.06em; display:flex; align-items:center; gap:6px;
+}
+
+.bank-card {
+  background:var(--deep); border-radius:14px; padding:32px; margin-top:28px;
+  border:1px solid rgba(201,150,60,0.2); position:relative; overflow:hidden;
+}
+.bank-card::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:180px; height:180px; border-radius:50%;
+  background:radial-gradient(circle, rgba(201,150,60,0.12) 0%, transparent 70%);
+}
+.bank-card h4 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--gold); margin-bottom:20px; }
+.bank-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+.bank-row:last-child { border-bottom:none; }
+.bank-key { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); }
+.bank-val { font-size:.88rem; color:rgba(255,255,255,0.8); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--deep);
+  border-top:1px solid rgba(201,150,60,0.15);
+  padding:64px 5vw 32px;
+}
+.footer-grid {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:48px;
+  padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.footer-brand p { color:rgba(255,255,255,0.45); font-size:.85rem; line-height:1.8; margin:16px 0 24px; }
+.footer-col h5 { font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:16px; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:10px; }
+.footer-col ul li a { color:rgba(255,255,255,0.45); text-decoration:none; font-size:.85rem; transition:.2s; }
+.footer-col ul li a:hover { color:var(--gold-light); }
+.footer-contact-item { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.footer-contact-item span:first-child { color:var(--gold); font-size:14px; }
+.footer-contact-item span:last-child { color:rgba(255,255,255,0.5); font-size:.85rem; }
+.footer-bottom {
+  max-width:1200px; margin:24px auto 0;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+}
+.footer-bottom p { color:rgba(255,255,255,0.3); font-size:.78rem; }
+
+/* ── ANIMATIONS ── */
+.fade-in { opacity:0; transform:translateY(24px); animation:fadeIn .7s ease forwards; }
+@keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
+.delay-1 { animation-delay:.1s; }
+.delay-2 { animation-delay:.2s; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px) {
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  .donate-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .form-row { grid-template-columns:1fr; }
+}
+@media(max-width:600px) {
+  .amount-grid { grid-template-columns:1fr 1fr; }
+  .use-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <img src="images/love-embrace-logo.png" style="width:38px;height:38px;border-radius:50%;object-fit:cover;">
+    </div>
+    <div class="nav-logo-text">Love Embrace<span>Global Outreach</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/gallery.html">Gallery</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/donate.html" class="nav-donate active">Donate</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/about.html" onclick="closeMenu()">About</a>
+  <a href="/gallery.html" onclick="closeMenu()">Gallery</a>
+  <a href="/contact.html" onclick="closeMenu()">Contact</a>
+  <a href="/donate.html" onclick="closeMenu()">Donate</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">Give Today</span>
+    <h1>Support <span>God's Work</span></h1>
+    <p>Your generosity enables us to reach more souls, empower communities, and extend God's unconditional love across Ghana and the world.</p>
+  </div>
+</section>
+
+<!-- DONATE SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="donate-grid">
+
+      <!-- Form -->
+      <div class="donate-form-wrap fade-in">
+        <h3>Make a Donation</h3>
+        <p class="sub">Every contribution — big or small — supports our missions and transforms lives.</p>
+
+        <div class="form-group">
+          <label>Select Currency</label>
+          <select id="d-currency" onchange="updateCurrency()">
+            <option value="GHS">GHS — Ghanaian Cedi</option>
+            <option value="USD">USD — US Dollar</option>
+            <option value="GBP">GBP — British Pound</option>
+            <option value="EUR">EUR — Euro</option>
+            <option value="AUD">AUD — Australian Dollar</option>
+          </select>
+        </div>
+
+        <span class="impact-use-label">Choose an Amount</span>
+        <div class="amount-grid" id="amount-grid">
+          <div class="amount-btn" onclick="selectAmount(this,'50')">GHS 50</div>
+          <div class="amount-btn" onclick="selectAmount(this,'100')">GHS 100</div>
+          <div class="amount-btn" onclick="selectAmount(this,'200')">GHS 200</div>
+          <div class="amount-btn" onclick="selectAmount(this,'500')">GHS 500</div>
+          <div class="amount-btn" onclick="selectAmount(this,'1000')">GHS 1,000</div>
+          <div class="amount-btn" onclick="selectAmount(this,'custom')">Custom</div>
+        </div>
+
+        <div class="custom-amount" id="custom-row" style="display:none;">
+          <span class="currency-badge" id="curr-badge">GHS</span>
+          <input type="number" placeholder="Enter amount" id="custom-val" min="1">
+        </div>
+
+        <span class="impact-use-label">Where would you like your gift to go?</span>
+        <div class="use-grid">
+          <div class="use-opt selected" onclick="selectUse(this)"><input type="radio" checked> Where Needed Most</div>
+          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> Evangelism &amp; Crusades</div>
+          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> Widows &amp; Orphans</div>
+          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> School Outreach</div>
+          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> Rural Church Support</div>
+          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> Humanitarian Aid</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Your first name" id="d-first">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Your last name" id="d-last">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email (for receipt)</label>
+          <input type="email" placeholder="your@email.com" id="d-email">
+        </div>
+
+        <div class="payment-methods">
+          <div class="pm-label">Payment Method</div>
+          <div class="pm-grid">
+            <div class="pm-chip active" onclick="selectPM(this)">📱 Mobile Money</div>
+            <div class="pm-chip" onclick="selectPM(this)">💳 Card</div>
+            <div class="pm-chip" onclick="selectPM(this)">🏦 Bank Transfer</div>
+          </div>
+        </div>
+
+        <div class="form-success" id="d-success">🙏 God bless you! Your donation has been received. A receipt will be sent to your email. Thank you for partnering with Love Embrace Global Outreach!</div>
+        <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:1rem;" onclick="submitDonate()">Give Now ✦</button>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:12px;text-align:center;">Your donation is secure. Love Embrace Global Outreach is a registered ministry.</p>
+      </div>
+
+      <!-- Impact Side -->
+      <div class="fade-in delay-2">
+        <span class="section-label">Your Gift in Action</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--deep);margin:8px 0 4px;">Every Cedis<br><span style="color:var(--gold);">Changes a Life</span></h3>
+        <div class="divider"></div>
+        <div class="impact-cards">
+          <div class="impact-item">
+            <div class="impact-item-icon">📖</div>
+            <div class="impact-item-text">
+              <strong>GHS 50 provides a Bible</strong>
+              <span>Free Bible for an SHS student in one of our outreach programs</span>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-item-icon">🍽️</div>
+            <div class="impact-item-text">
+              <strong>GHS 100 feeds a family</strong>
+              <span>Food provision at a Jesus is Lord Crusade community outreach</span>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-item-icon">👗</div>
+            <div class="impact-item-text">
+              <strong>GHS 200 stocks the Jesus Boutique</strong>
+              <span>Clothing and essentials for community members in need</span>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-item-icon">🎓</div>
+            <div class="impact-item-text">
+              <strong>GHS 500 pays school fees</strong>
+              <span>Covers a term's school fees for an orphan or vulnerable child</span>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-item-icon">⛪</div>
+            <div class="impact-item-text">
+              <strong>GHS 1,000+ builds the Church</strong>
+              <span>Supports rural pastor allowances and village church development</span>
+            </div>
+          </div>
+        </div>
+        <div class="trust-badges">
+          <div class="trust-badge">✅ Registered Ministry</div>
+          <div class="trust-badge">🔒 Secure Giving</div>
+          <div class="trust-badge">📧 Receipt Provided</div>
+          <div class="trust-badge">🌍 Global Impact</div>
+        </div>
+        <div class="bank-card">
+          <h4>🏦 Bank Transfer Details</h4>
+          <div class="bank-row"><span class="bank-key">Bank</span><span class="bank-val">To be updated</span></div>
+          <div class="bank-row"><span class="bank-key">Account No.</span><span class="bank-val">To be updated</span></div>
+          <div class="bank-row"><span class="bank-key">Branch</span><span class="bank-val">To be updated</span></div>
+          <div class="bank-row"><span class="bank-key">SWIFT</span><span class="bank-val">To be updated</span></div>
+          <div class="bank-row"><span class="bank-key">Account Name</span><span class="bank-val">Love Embrace Global Outreach</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="/" style="text-decoration:none;margin-bottom:0;display:flex;">
+        <div class="nav-logo-icon"><img src="images/love-embrace-logo.png" style="width:38px;height:38px;border-radius:50%;object-fit:cover;"></div>
+        <div class="nav-logo-text">Love Embrace<span>Global Outreach</span></div>
+      </a>
+      <p>Advancing the Christian faith through worship, evangelism, humanitarian outreach, and community development.</p>
+      <div class="footer-contact-item"><span>📞</span><span>+233 244 66 36 71</span></div>
+      <div class="footer-contact-item"><span>🌐</span><span>loveembrace.org</span></div>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/gallery.html">Gallery</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/donate.html">Donate</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Programs</h5>
+      <ul>
+        <li><a href="/">Loose Them &amp; Bring Them</a></li>
+        <li><a href="/">Jesus is Lord Crusade</a></li>
+        <li><a href="/">Soteria Conference</a></li>
+        <li><a href="/">Faithamins</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="/contact.html">+233 244 66 36 71</a></li>
+        <li><a href="/contact.html">info@loveembrace.org</a></li>
+        <li><a href="/">loveembrace.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Love Embrace Global Outreach. All rights reserved.</p>
+    <p>Founded 2016</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+let selectedAmount = '';
+function selectAmount(el, val) {
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedAmount = val;
+  document.getElementById('custom-row').style.display = val === 'custom' ? 'flex' : 'none';
+}
+function selectUse(el) {
+  document.querySelectorAll('.use-opt').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function selectPM(el) {
+  document.querySelectorAll('.pm-chip').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
+function updateCurrency() {
+  const curr = document.getElementById('d-currency').value;
+  const symbols = {GHS:'GHS',USD:'USD',GBP:'£',EUR:'€',AUD:'AUD'};
+  const amts = {
+    GHS:['50','100','200','500','1000'],
+    USD:['10','25','50','100','250'],
+    GBP:['10','20','50','100','200'],
+    EUR:['10','20','50','100','200'],
+    AUD:['15','30','75','150','300']
+  };
+  const s = symbols[curr] || curr;
+  const a = amts[curr] || amts.GHS;
+  const btns = document.querySelectorAll('.amount-btn');
+  btns.forEach((b,i) => {
+    if(i < 5) b.textContent = s+' '+parseInt(a[i]).toLocaleString();
+  });
+  document.getElementById('curr-badge').textContent = s;
+}
+function submitDonate() {
+  document.getElementById('d-success').classList.add('show');
+  setTimeout(()=>document.getElementById('d-success').classList.remove('show'), 8000);
+}
+</script>
+</body>
+</html>
