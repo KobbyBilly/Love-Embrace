@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Love Embrace Global Outreach</title>
+<link rel="icon" type="image/png" href="lefavicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9963C;--gold-light:#E8B86D;--gold-pale:#F5E6C8;--deep:#1A0E05;--brown:#3D2010;--warm:#7A4520;--cream:#FBF6EE;--white:#FFFFFF;--text:#2C1A0A;--muted:#7A6555;--border:rgba(201,150,60,0.25);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.4;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,14,5,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-icon{width:38px;height:38px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--white);line-height:1.1;}
+.nav-logo-text span{color:var(--gold);display:block;font-size:.75rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;}
+.nav-links{display:flex;gap:8px;list-style:none;}
+.nav-links li a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:4px;transition:all .2s;}
+.nav-links li a:hover,.nav-links li a.active{color:var(--gold);}
+.nav-links li a.nav-donate{background:var(--gold);color:var(--deep);font-weight:600;}
+.nav-links li a.nav-donate:hover{background:var(--gold-light);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:.3s;}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;z-index:99;background:rgba(26,14,5,0.98);padding:24px 5vw;flex-direction:column;gap:4px;border-bottom:1px solid var(--border);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:.95rem;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);letter-spacing:.04em;text-transform:uppercase;transition:.2s;}
+.mobile-menu a:hover{color:var(--gold);}
+.section{padding:96px 5vw;position:relative;z-index:1;}
+.container{max-width:1200px;margin:0 auto;}
+.section-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:12px;display:block;}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.15;color:var(--deep);}
+.section-title span{color:var(--gold);}
+.divider{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:20px 0;border-radius:2px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:4px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;text-decoration:none;transition:all .25s;}
+.btn-gold{background:var(--gold);color:var(--deep);}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,150,60,0.35);}
+.page-hero{background:linear-gradient(135deg,var(--deep) 0%,var(--brown) 100%);padding:152px 5vw 64px;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:-60px;right:-60px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(201,150,60,0.15) 0%,transparent 70%);pointer-events:none;}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.1;}
+.page-hero h1 span{color:var(--gold);}
+.page-hero p{color:rgba(255,255,255,0.65);margin-top:16px;max-width:560px;line-height:1.8;}
+.gallery-intro{text-align:center;max-width:620px;margin:0 auto 56px;}
+.gallery-intro .section-title{text-align:center;}
+.gallery-intro .divider{margin:20px auto;}
+.gallery-grid{columns:3;gap:16px;column-fill:balance;}
+.gallery-item{break-inside:avoid;margin-bottom:16px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;}
+.gallery-placeholder{width:100%;background:var(--white);border:1px solid var(--border);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden;transition:.35s;}
+.gallery-placeholder:hover{transform:scale(1.02);box-shadow:0 16px 40px rgba(60,32,8,0.15);}
+.gallery-placeholder:hover .gallery-overlay{opacity:1;}
+.gallery-overlay{position:absolute;inset:0;background:rgba(26,14,5,0.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;flex-direction:column;gap:8px;}
+.gallery-overlay span{color:var(--white);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;}
+.gallery-bg-1{background:linear-gradient(135deg,#F5E6C8,#E8B86D);height:220px;}
+.gallery-bg-2{background:linear-gradient(135deg,#3D2010,#7A4520);height:180px;}
+.gallery-bg-3{background:linear-gradient(135deg,#1A0E05,#3D2010);height:260px;}
+.gallery-bg-4{background:linear-gradient(135deg,#C9963C,#E8B86D);height:200px;}
+.gallery-bg-5{background:linear-gradient(135deg,#7A4520,#C9963C);height:240px;}
+.gallery-bg-6{background:linear-gradient(135deg,#F5E6C8,#C9963C);height:180px;}
+.gallery-bg-7{background:linear-gradient(135deg,#3D2010,#1A0E05);height:220px;}
+.gallery-bg-8{background:linear-gradient(135deg,#E8B86D,#7A4520);height:200px;}
+.gallery-bg-9{background:linear-gradient(135deg,#1A0E05,#C9963C);height:260px;}
+.gallery-caption{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);text-align:center;padding:14px 16px;background:var(--white);}
+.gallery-upload-note{background:var(--gold-pale);border:1px dashed var(--gold);border-radius:10px;padding:32px;text-align:center;margin-top:40px;}
+.gallery-upload-note h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--deep);}
+.gallery-upload-note p{color:var(--muted);font-size:.88rem;margin-top:8px;line-height:1.7;}
+footer{background:var(--deep);border-top:1px solid rgba(201,150,60,0.15);padding:64px 5vw 32px;}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.footer-brand p{color:rgba(255,255,255,0.45);font-size:.85rem;line-height:1.8;margin:16px 0 24px;}
+.footer-col h5{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:.85rem;transition:.2s;}
+.footer-col ul li a:hover{color:var(--gold-light);}
+.footer-contact-item{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.footer-contact-item span:first-child{color:var(--gold);font-size:14px;}
+.footer-contact-item span:last-child{color:rgba(255,255,255,0.5);font-size:.85rem;}
+.footer-bottom{max-width:1200px;margin:24px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{color:rgba(255,255,255,0.3);font-size:.78rem;}
+.fade-in{opacity:0;transform:translateY(24px);animation:fadeIn .7s ease forwards;}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
+@media(max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}.gallery-grid{columns:2;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.gallery-grid{columns:1;}.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><div class="nav-logo-icon"><img src="images/love-embrace-logo.png" style="width:38px;height:38px;border-radius:50%;object-fit:cover;"></div><div class="nav-logo-text">Love Embrace<span>Global Outreach</span></div></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/gallery.html" class="active">Gallery</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/donate.html" class="nav-donate">Donate</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/about.html" onclick="closeMenu()">About</a>
+  <a href="/gallery.html" onclick="closeMenu()">Gallery</a>
+  <a href="/contact.html" onclick="closeMenu()">Contact</a>
+  <a href="/donate.html" onclick="closeMenu()">Donate</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">Our Work in Pictures</span>
+    <h1>Gallery of <span>Grace</span></h1>
+    <p>A visual testimony of God's love in action — crusades, school outreaches, community support, and transformed lives across Ghana and beyond.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="gallery-intro">
+      <span class="section-label">Moments of Impact</span>
+      <h2 class="section-title">Love in <span>Action</span></h2>
+      <div class="divider"></div>
+      <p style="color:var(--muted);line-height:1.8;">Every image tells the story of a life touched by God's unfailing love. Browse our outreach moments, crusades, and community programs.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-1" style="width:100%"></div><div class="gallery-overlay"><span>Loose Them &amp; Bring Them</span></div><div class="gallery-caption">SHS Outreach — Greater Accra</div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-2" style="width:100%"></div><div class="gallery-overlay"><span>Jesus is Lord Crusade</span></div><div class="gallery-caption">Abetifi-Kwahu Crusade, Eastern Region</div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-3" style="width:100%"></div><div class="gallery-overlay"><span>North Gonja Mission 2026</span></div><div class="gallery-caption">Love Embrace — North Gonja Outreach</div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-4" style="width:100%"></div><div class="gallery-overlay"><span>Jesus Boutique</span></div><div class="gallery-caption">Free Clothing Distribution</div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-5" style="width:100%"></div><div class="gallery-overlay"><span>Widows &amp; Orphans</span></div><div class="gallery-caption">Christmas Support Packages</div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-6" style="width:100%"></div><div class="gallery-overlay"><span>Savannah Region Crusade</span></div><div class="gallery-caption">Mognori, West Gonja District</div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-7" style="width:100%"></div><div class="gallery-overlay"><span>Soteria Conference</span></div><div class="gallery-caption">Global Soul-Winning Platform</div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-8" style="width:100%"></div><div class="gallery-overlay"><span>Bible Distribution</span></div><div class="gallery-caption">Free Bibles for SHS Students</div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-9" style="width:100%"></div><div class="gallery-overlay"><span>Village Church Support</span></div><div class="gallery-caption">Empowering Rural Pastors</div></div></div>
+    </div>
+    <div class="gallery-upload-note">
+      <h4>📸 Share Your Moments</h4>
+      <p>Do you have photos from our outreach programs or crusades? We'd love to feature them here. Contact us to submit your images for the gallery.</p>
+      <br>
+      <a class="btn btn-gold" href="/contact.html">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="/" style="text-decoration:none;display:flex;"><div class="nav-logo-icon"><img src="images/love-embrace-logo.png" style="width:38px;height:38px;border-radius:50%;object-fit:cover;"></div><div class="nav-logo-text">Love Embrace<span>Global Outreach</span></div></a>
+      <p>Advancing the Christian faith through worship, evangelism, humanitarian outreach, and community development.</p>
+      <div class="footer-contact-item"><span>📞</span><span>+233 244 66 36 71</span></div>
+      <div class="footer-contact-item"><span>🌐</span><span>loveembrace.org</span></div>
+    </div>
+    <div class="footer-col"><h5>Navigate</h5><ul><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/gallery.html">Gallery</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/donate.html">Donate</a></li></ul></div>
+    <div class="footer-col"><h5>Programs</h5><ul><li><a href="/">Loose Them &amp; Bring Them</a></li><li><a href="/">Jesus is Lord Crusade</a></li><li><a href="/">Soteria Conference</a></li><li><a href="/">Faithamins</a></li></ul></div>
+    <div class="footer-col"><h5>Get Involved</h5><ul><li><a href="/donate.html">Donate</a></li><li><a href="/contact.html">Volunteer</a></li><li><a href="/contact.html">Partner</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Love Embrace Global Outreach. All rights reserved.</p></div>
+</footer>
+<script>
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');}
+</script>
+</body>
+</html>
