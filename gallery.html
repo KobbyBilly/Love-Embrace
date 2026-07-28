@@ -64,6 +64,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,14,5,0.96
 .gallery-upload-note{background:var(--gold-pale);border:1px dashed var(--gold);border-radius:10px;padding:32px;text-align:center;margin-top:40px;}
 .gallery-upload-note h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--deep);}
 .gallery-upload-note p{color:var(--muted);font-size:.88rem;margin-top:8px;line-height:1.7;}
+
+/* Magazine download */
+.magazine-section{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:center;background:linear-gradient(135deg,var(--deep) 0%,var(--brown) 100%);border-radius:16px;padding:40px;margin-top:40px;position:relative;overflow:hidden;}
+.magazine-section::after{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(201,150,60,0.18) 0%,transparent 70%);pointer-events:none;}
+.magazine-cover{width:100%;border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,0.45);position:relative;z-index:1;transition:transform .3s;}
+.magazine-cover:hover{transform:translateY(-4px) rotate(-1deg);}
+.magazine-body{position:relative;z-index:1;}
+.magazine-body .section-label{color:var(--gold-light);}
+.magazine-body h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--white);line-height:1.2;margin-top:6px;}
+.magazine-body p{color:rgba(255,255,255,0.65);margin:14px 0 24px;line-height:1.8;font-size:.92rem;max-width:480px;}
+.magazine-meta{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px;}
+.magazine-meta span{color:rgba(255,255,255,0.55);font-size:.8rem;letter-spacing:.04em;display:flex;align-items:center;gap:6px;}
+@media(max-width:700px){.magazine-section{grid-template-columns:1fr;text-align:center;padding:32px 24px;}.magazine-cover{max-width:220px;margin:0 auto;}.magazine-body p{max-width:none;}.magazine-meta{justify-content:center;}}
 footer{background:var(--deep);border-top:1px solid rgba(201,150,60,0.15);padding:64px 5vw 32px;}
 .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.06);}
 .footer-brand p{color:rgba(255,255,255,0.45);font-size:.85rem;line-height:1.8;margin:16px 0 24px;}
@@ -142,6 +155,21 @@ footer{background:var(--deep);border-top:1px solid rgba(201,150,60,0.15);padding
         allowfullscreen
         referrerpolicy="strict-origin-when-cross-origin">
       </iframe>
+    </div>
+
+    <!-- 10th Anniversary Magazine Download -->
+    <div class="magazine-section">
+      <img class="magazine-cover" src="images/magazine-cover.jpg" alt="Love Embrace 10th Year Magazine cover">
+      <div class="magazine-body">
+        <span class="section-label">Free Download</span>
+        <h3>10th Anniversary Magazine</h3>
+        <p>A commemorative 63-page keepsake celebrating a decade of ministry, outreach, and God's faithfulness — featuring stories, testimonies, and moments from our journey together.</p>
+        <div class="magazine-meta">
+          <span>📄 63 Pages</span>
+          <span>📦 PDF Format</span>
+        </div>
+        <a class="btn btn-gold" href="files/Love-Embrace-10th-Year-Magazine.pdf" download>Download Magazine ⤓</a>
+      </div>
     </div>
 
     <div class="gallery-upload-note">
