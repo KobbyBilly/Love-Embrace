@@ -247,10 +247,38 @@ nav {
   background:radial-gradient(circle, rgba(201,150,60,0.12) 0%, transparent 70%);
 }
 .bank-card h4 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--gold); margin-bottom:20px; }
-.bank-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+.bank-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); gap:16px; }
 .bank-row:last-child { border-bottom:none; }
-.bank-key { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); }
-.bank-val { font-size:.88rem; color:rgba(255,255,255,0.8); }
+.bank-key { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); white-space:nowrap; }
+.bank-val { font-size:.88rem; color:rgba(255,255,255,0.8); text-align:right; }
+
+/* ── GLOBAL GIVING OPTIONS ── */
+.giving-intro { text-align:center; max-width:620px; margin:0 auto 40px; }
+.giving-intro .section-title { text-align:center; }
+.giving-intro .divider { margin:20px auto; }
+.giving-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+.giving-card {
+  background:var(--white); border:1px solid var(--border); border-radius:14px;
+  overflow:hidden; box-shadow:0 12px 30px rgba(60,32,8,0.06);
+}
+.giving-card-header {
+  background:linear-gradient(135deg,var(--deep),var(--brown));
+  padding:16px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.giving-card-brand { display:flex; align-items:center; gap:10px; }
+.giving-card-brand .gc-icon { font-size:1.4rem; }
+.giving-card-brand .gc-name { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--white); line-height:1.2; }
+.giving-card-brand .gc-country { font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,0.55); }
+.giving-card-flag { font-size:1.3rem; }
+.giving-card-body { padding:18px 20px; }
+.giving-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); gap:16px; }
+.giving-row:last-child { border-bottom:none; }
+.giving-key { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+.giving-val { font-size:.85rem; color:var(--text); text-align:right; word-break:break-word; }
+.giving-card.featured .giving-card-header { background:linear-gradient(135deg,var(--gold),var(--gold-light)); }
+.giving-card.featured .gc-name { color:var(--deep); }
+.giving-card.featured .gc-country { color:rgba(26,14,5,0.6); }
+@media(max-width:800px){ .giving-grid{ grid-template-columns:1fr; } }
 
 /* ── FOOTER ── */
 footer {
@@ -461,12 +489,104 @@ footer {
           <div class="trust-badge">🌍 Global Impact</div>
         </div>
         <div class="bank-card">
-          <h4>🏦 Bank Transfer Details</h4>
-          <div class="bank-row"><span class="bank-key">Bank</span><span class="bank-val">To be updated</span></div>
-          <div class="bank-row"><span class="bank-key">Account No.</span><span class="bank-val">To be updated</span></div>
-          <div class="bank-row"><span class="bank-key">Branch</span><span class="bank-val">To be updated</span></div>
-          <div class="bank-row"><span class="bank-key">SWIFT</span><span class="bank-val">To be updated</span></div>
-          <div class="bank-row"><span class="bank-key">Account Name</span><span class="bank-val">Love Embrace Global Outreach</span></div>
+          <h4>🇬🇭 Bank Transfer Details (Ghana)</h4>
+          <div class="bank-row"><span class="bank-key">Bank</span><span class="bank-val">Stanbic Bank</span></div>
+          <div class="bank-row"><span class="bank-key">Account No.</span><span class="bank-val">9040014825309</span></div>
+          <div class="bank-row"><span class="bank-key">Branch</span><span class="bank-val">Madina</span></div>
+          <div class="bank-row"><span class="bank-key">SWIFT</span><span class="bank-val">SBICGHAC</span></div>
+          <div class="bank-row"><span class="bank-key">Account Name</span><span class="bank-val">Love Embrace Global Outreach LBG</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL GIVING OPTIONS -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="giving-intro">
+      <span class="section-label">More Ways to Partner</span>
+      <h2 class="section-title">Global Giving <span>Options</span></h2>
+      <div class="divider"></div>
+      <p style="color:var(--muted);line-height:1.8;">Wherever you are in the world, here are additional ways you can support Love Embrace Global Outreach.</p>
+    </div>
+
+    <div class="giving-grid">
+
+      <!-- CommBank Australia -->
+      <div class="giving-card">
+        <div class="giving-card-header">
+          <div class="giving-card-brand"><span class="gc-icon">🏦</span><div><div class="gc-name">CommBank</div><div class="gc-country">Australia</div></div></div>
+          <span class="giving-card-flag">🇦🇺</span>
+        </div>
+        <div class="giving-card-body">
+          <div class="giving-row"><span class="giving-key">Account Holder</span><span class="giving-val">Isaac Baffour Senkyire</span></div>
+          <div class="giving-row"><span class="giving-key">Account Number</span><span class="giving-val">1110 5172</span></div>
+          <div class="giving-row"><span class="giving-key">BSB</span><span class="giving-val">063-241</span></div>
+          <div class="giving-row"><span class="giving-key">Bank Name</span><span class="giving-val">CommBank</span></div>
+          <div class="giving-row"><span class="giving-key">Bank Address</span><span class="giving-val">Tenancy 107, Woodgrove Shopping Centre, 533-555 High St, Melton VIC 3337, Australia</span></div>
+        </div>
+      </div>
+
+      <!-- Bank of America -->
+      <div class="giving-card">
+        <div class="giving-card-header">
+          <div class="giving-card-brand"><span class="gc-icon">🏦</span><div><div class="gc-name">Bank of America</div><div class="gc-country">United States</div></div></div>
+          <span class="giving-card-flag">🇺🇸</span>
+        </div>
+        <div class="giving-card-body">
+          <div class="giving-row"><span class="giving-key">Account Holder</span><span class="giving-val">Isaac Baffour Senkyire</span></div>
+          <div class="giving-row"><span class="giving-key">Account Number</span><span class="giving-val">139105372478</span></div>
+          <div class="giving-row"><span class="giving-key">Routing Number</span><span class="giving-val">123103716</span></div>
+          <div class="giving-row"><span class="giving-key">SWIFT/BIC</span><span class="giving-val">BOFAUS3N</span></div>
+          <div class="giving-row"><span class="giving-key">Bank Name</span><span class="giving-val">Bank of America</span></div>
+          <div class="giving-row"><span class="giving-key">Bank Address</span><span class="giving-val">Bank of America, N. A., 222 Broadway, New York, NY 10038</span></div>
+        </div>
+      </div>
+
+      <!-- PayID -->
+      <div class="giving-card">
+        <div class="giving-card-header">
+          <div class="giving-card-brand"><span class="gc-icon">🆔</span><div><div class="gc-name">PayID</div><div class="gc-country">Australia</div></div></div>
+          <span class="giving-card-flag">🇦🇺</span>
+        </div>
+        <div class="giving-card-body">
+          <div class="giving-row"><span class="giving-key">PayID</span><span class="giving-val">isaacbaffoursenkyire@gmail.com</span></div>
+        </div>
+      </div>
+
+      <!-- PayPal -->
+      <div class="giving-card">
+        <div class="giving-card-header">
+          <div class="giving-card-brand"><span class="gc-icon">💰</span><div><div class="gc-name">PayPal</div><div class="gc-country">Global</div></div></div>
+          <span class="giving-card-flag">🌍</span>
+        </div>
+        <div class="giving-card-body">
+          <div class="giving-row"><span class="giving-key">PayPal Username</span><span class="giving-val">@ISAACBAFFOURSENKYIRE</span></div>
+        </div>
+      </div>
+
+      <!-- Venmo -->
+      <div class="giving-card">
+        <div class="giving-card-header">
+          <div class="giving-card-brand"><span class="gc-icon">💸</span><div><div class="gc-name">Venmo</div><div class="gc-country">United States</div></div></div>
+          <span class="giving-card-flag">🇺🇸</span>
+        </div>
+        <div class="giving-card-body">
+          <div class="giving-row"><span class="giving-key">Venmo Link</span><span class="giving-val"><a href="https://venmo.com/u/isaacbaffoursenkyire" target="_blank" rel="noopener" style="color:var(--warm);">venmo.com/u/isaacbaffoursenkyire</a></span></div>
+        </div>
+      </div>
+
+      <!-- Cash App -->
+      <div class="giving-card">
+        <div class="giving-card-header">
+          <div class="giving-card-brand"><span class="gc-icon">💵</span><div><div class="gc-name">Cash App</div><div class="gc-country">United States</div></div></div>
+          <span class="giving-card-flag">🇺🇸</span>
+        </div>
+        <div class="giving-card-body">
+          <div class="giving-row"><span class="giving-key">CashApp</span><span class="giving-val">$IsaacBaffourSenkyire</span></div>
+          <div class="giving-row"><span class="giving-key">Link</span><span class="giving-val"><a href="https://cash.app/$IsaacBaffourSenkyire" target="_blank" rel="noopener" style="color:var(--warm);">cash.app/$IsaacBaffourSenkyire</a></span></div>
         </div>
       </div>
 
