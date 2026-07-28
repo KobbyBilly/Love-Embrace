@@ -44,26 +44,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,14,5,0.96
 .page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.1;}
 .page-hero h1 span{color:var(--gold);}
 .page-hero p{color:rgba(255,255,255,0.65);margin-top:16px;max-width:560px;line-height:1.8;}
-.gallery-intro{text-align:center;max-width:620px;margin:0 auto 56px;}
+.gallery-intro{text-align:center;max-width:620px;margin:0 auto 40px;}
 .gallery-intro .section-title{text-align:center;}
 .gallery-intro .divider{margin:20px auto;}
-.gallery-grid{columns:3;gap:16px;column-fill:balance;}
-.gallery-item{break-inside:avoid;margin-bottom:16px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;}
-.gallery-placeholder{width:100%;background:var(--white);border:1px solid var(--border);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden;transition:.35s;}
-.gallery-placeholder:hover{transform:scale(1.02);box-shadow:0 16px 40px rgba(60,32,8,0.15);}
-.gallery-placeholder:hover .gallery-overlay{opacity:1;}
-.gallery-overlay{position:absolute;inset:0;background:rgba(26,14,5,0.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;flex-direction:column;gap:8px;}
-.gallery-overlay span{color:var(--white);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;}
-.gallery-bg-1{background:linear-gradient(135deg,#F5E6C8,#E8B86D);height:220px;}
-.gallery-bg-2{background:linear-gradient(135deg,#3D2010,#7A4520);height:180px;}
-.gallery-bg-3{background:linear-gradient(135deg,#1A0E05,#3D2010);height:260px;}
-.gallery-bg-4{background:linear-gradient(135deg,#C9963C,#E8B86D);height:200px;}
-.gallery-bg-5{background:linear-gradient(135deg,#7A4520,#C9963C);height:240px;}
-.gallery-bg-6{background:linear-gradient(135deg,#F5E6C8,#C9963C);height:180px;}
-.gallery-bg-7{background:linear-gradient(135deg,#3D2010,#1A0E05);height:220px;}
-.gallery-bg-8{background:linear-gradient(135deg,#E8B86D,#7A4520);height:200px;}
-.gallery-bg-9{background:linear-gradient(135deg,#1A0E05,#C9963C);height:260px;}
-.gallery-caption{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);text-align:center;padding:14px 16px;background:var(--white);}
+
+/* Featured Pixieset event card (cover image + link out) */
+.pixieset-feature{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(60,32,8,0.08);margin-bottom:40px;}
+.pixieset-feature-img{background-image:url('https://images.pixieset.com/793341911/5e599d81e5bb8f8f0ce2906b79000346-cover.jpg');background-size:cover;background-position:center;min-height:340px;}
+.pixieset-feature-body{padding:40px;display:flex;flex-direction:column;justify-content:center;}
+.pixieset-feature-body .section-label{margin-bottom:8px;}
+.pixieset-feature-body h3{font-size:1.8rem;color:var(--deep);line-height:1.2;}
+.pixieset-feature-body p{color:var(--muted);margin:14px 0 22px;line-height:1.8;font-size:.92rem;}
+.pixieset-feature-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* Embedded Pixieset gallery */
+.pixieset-embed-wrap{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(60,32,8,0.08);}
+.pixieset-embed-wrap iframe{width:100%;height:900px;border:0;display:block;background:var(--cream);}
+
 .gallery-upload-note{background:var(--gold-pale);border:1px dashed var(--gold);border-radius:10px;padding:32px;text-align:center;margin-top:40px;}
 .gallery-upload-note h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--deep);}
 .gallery-upload-note p{color:var(--muted);font-size:.88rem;margin-top:8px;line-height:1.7;}
@@ -82,8 +79,8 @@ footer{background:var(--deep);border-top:1px solid rgba(201,150,60,0.15);padding
 .footer-bottom p{color:rgba(255,255,255,0.3);font-size:.78rem;}
 .fade-in{opacity:0;transform:translateY(24px);animation:fadeIn .7s ease forwards;}
 @keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
-@media(max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}.gallery-grid{columns:2;}.footer-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.gallery-grid{columns:1;}.footer-grid{grid-template-columns:1fr;}}
+@media(max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}.footer-grid{grid-template-columns:1fr 1fr;}.pixieset-feature{grid-template-columns:1fr;}.pixieset-feature-img{min-height:220px;}.pixieset-embed-wrap iframe{height:700px;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;}.pixieset-embed-wrap iframe{height:600px;}}
 </style>
 </head>
 <body>
@@ -120,19 +117,33 @@ footer{background:var(--deep);border-top:1px solid rgba(201,150,60,0.15);padding
       <span class="section-label">Moments of Impact</span>
       <h2 class="section-title">Love in <span>Action</span></h2>
       <div class="divider"></div>
-      <p style="color:var(--muted);line-height:1.8;">Every image tells the story of a life touched by God's unfailing love. Browse our outreach moments, crusades, and community programs.</p>
+      <p style="color:var(--muted);line-height:1.8;">Every image tells the story of a life touched by God's unfailing love. Browse our outreach moments, crusades, and community programs below.</p>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-1" style="width:100%"></div><div class="gallery-overlay"><span>Loose Them &amp; Bring Them</span></div><div class="gallery-caption">SHS Outreach — Greater Accra</div></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-2" style="width:100%"></div><div class="gallery-overlay"><span>Jesus is Lord Crusade</span></div><div class="gallery-caption">Abetifi-Kwahu Crusade, Eastern Region</div></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-3" style="width:100%"></div><div class="gallery-overlay"><span>North Gonja Mission 2026</span></div><div class="gallery-caption">Love Embrace — North Gonja Outreach</div></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-4" style="width:100%"></div><div class="gallery-overlay"><span>Jesus Boutique</span></div><div class="gallery-caption">Free Clothing Distribution</div></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-5" style="width:100%"></div><div class="gallery-overlay"><span>Widows &amp; Orphans</span></div><div class="gallery-caption">Christmas Support Packages</div></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-6" style="width:100%"></div><div class="gallery-overlay"><span>Savannah Region Crusade</span></div><div class="gallery-caption">Mognori, West Gonja District</div></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-7" style="width:100%"></div><div class="gallery-overlay"><span>Soteria Conference</span></div><div class="gallery-caption">Global Soul-Winning Platform</div></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-8" style="width:100%"></div><div class="gallery-overlay"><span>Bible Distribution</span></div><div class="gallery-caption">Free Bibles for SHS Students</div></div></div>
-      <div class="gallery-item"><div class="gallery-placeholder"><div class="gallery-bg-9" style="width:100%"></div><div class="gallery-overlay"><span>Village Church Support</span></div><div class="gallery-caption">Empowering Rural Pastors</div></div></div>
+
+    <!-- Featured event card -->
+    <div class="pixieset-feature">
+      <div class="pixieset-feature-img"></div>
+      <div class="pixieset-feature-body">
+        <span class="section-label">Featured Event</span>
+        <h3>10th Anniversary Celebration</h3>
+        <p>July 19th, 2026 — Celebrating a decade of ministry, outreach, and God's faithfulness with the Love Embrace family.</p>
+        <div class="pixieset-feature-actions">
+          <a class="btn btn-gold" href="https://loveembraceglobaloutreach.pixieset.com/10thanniversarycelebration/" target="_blank" rel="noopener">View Full Gallery ↗</a>
+        </div>
+      </div>
     </div>
+
+    <!-- Embedded Pixieset gallery -->
+    <div class="pixieset-embed-wrap">
+      <iframe
+        src="https://loveembraceglobaloutreach.pixieset.com/10thanniversarycelebration/"
+        title="10th Anniversary Celebration — Photo Gallery"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+
     <div class="gallery-upload-note">
       <h4>📸 Share Your Moments</h4>
       <p>Do you have photos from our outreach programs or crusades? We'd love to feature them here. Contact us to submit your images for the gallery.</p>
