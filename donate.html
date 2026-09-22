@@ -145,7 +145,7 @@ nav {
 .btn-gold:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 8px 24px rgba(201,150,60,0.35); }
 
 /* ── DONATE PAGE ── */
-.donate-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:56px; }
+.donate-grid { display:grid; grid-template-columns:1fr; gap:56px; }
 
 .donate-form-wrap {
   background:var(--white); border:1px solid var(--border);
@@ -200,16 +200,6 @@ nav {
 }
 .use-opt:hover, .use-opt.selected { border-color:var(--gold); color:var(--warm); background:var(--gold-pale); }
 .use-opt input[type=radio] { accent-color:var(--gold); }
-
-.payment-methods { margin:20px 0; }
-.pm-label { font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:10px; }
-.pm-grid { display:flex; gap:8px; flex-wrap:wrap; }
-.pm-chip {
-  border:1.5px solid var(--border); border-radius:6px; padding:8px 14px;
-  font-size:.8rem; color:var(--muted); cursor:pointer; transition:.2s;
-  background:var(--cream); display:flex; align-items:center; gap:6px;
-}
-.pm-chip:hover, .pm-chip.active { border-color:var(--gold); color:var(--warm); background:var(--gold-pale); }
 
 .form-success {
   background:#E8F5E9; border:1px solid #81C784; border-radius:8px;
@@ -369,79 +359,7 @@ footer {
 <section class="section">
   <div class="container">
     <div class="donate-grid">
-
-      <!-- Form -->
-      <div class="donate-form-wrap fade-in">
-        <h3>Make a Donation</h3>
-        <p class="sub">Every contribution — big or small — supports our missions and transforms lives.</p>
-
-        <div class="form-group">
-          <label>Select Currency</label>
-          <select id="d-currency" onchange="updateCurrency()">
-            <option value="GHS">GHS — Ghanaian Cedi</option>
-            <option value="USD">USD — US Dollar</option>
-            <option value="GBP">GBP — British Pound</option>
-            <option value="EUR">EUR — Euro</option>
-            <option value="AUD">AUD — Australian Dollar</option>
-          </select>
-        </div>
-
-        <span class="impact-use-label">Choose an Amount</span>
-        <div class="amount-grid" id="amount-grid">
-          <div class="amount-btn" onclick="selectAmount(this,'50')">GHS 50</div>
-          <div class="amount-btn" onclick="selectAmount(this,'100')">GHS 100</div>
-          <div class="amount-btn" onclick="selectAmount(this,'200')">GHS 200</div>
-          <div class="amount-btn" onclick="selectAmount(this,'500')">GHS 500</div>
-          <div class="amount-btn" onclick="selectAmount(this,'1000')">GHS 1,000</div>
-          <div class="amount-btn" onclick="selectAmount(this,'custom')">Custom</div>
-        </div>
-
-        <div class="custom-amount" id="custom-row" style="display:none;">
-          <span class="currency-badge" id="curr-badge">GHS</span>
-          <input type="number" placeholder="Enter amount" id="custom-val" min="1">
-        </div>
-
-        <span class="impact-use-label">Where would you like your gift to go?</span>
-        <div class="use-grid">
-          <div class="use-opt selected" onclick="selectUse(this)"><input type="radio" checked> Where Needed Most</div>
-          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> Evangelism &amp; Crusades</div>
-          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> Widows &amp; Orphans</div>
-          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> School Outreach</div>
-          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> Rural Church Support</div>
-          <div class="use-opt" onclick="selectUse(this)"><input type="radio"> Humanitarian Aid</div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Your first name" id="d-first">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Your last name" id="d-last">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email (for receipt)</label>
-          <input type="email" placeholder="your@email.com" id="d-email">
-        </div>
-
-        <div class="payment-methods">
-          <div class="pm-label">Payment Method</div>
-          <div class="pm-grid">
-            <div class="pm-chip active" onclick="selectPM(this)">📱 Mobile Money</div>
-            <div class="pm-chip" onclick="selectPM(this)">💳 Card</div>
-            <div class="pm-chip" onclick="selectPM(this)">🏦 Bank Transfer</div>
-          </div>
-        </div>
-
-        <div class="form-success" id="d-success">🙏 God bless you! Your donation has been received. A receipt will be sent to your email. Thank you for partnering with Love Embrace Global Outreach!</div>
-        <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:1rem;" onclick="submitDonate()">Give Now ✦</button>
-        <p style="font-size:.75rem;color:var(--muted);margin-top:12px;text-align:center;">Your donation is secure. Love Embrace Global Outreach is a registered ministry.</p>
-      </div>
-
-      <!-- Impact Side -->
-      <div class="fade-in delay-2">
+      <div class="fade-in">
         <span class="section-label">Your Gift in Action</span>
         <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--deep);margin:8px 0 4px;">Every Cedis<br><span style="color:var(--gold);">Changes a Life</span></h3>
         <div class="divider"></div>
@@ -660,43 +578,6 @@ function closeMenu() {
   document.getElementById('mobile-menu').classList.remove('open');
 }
 
-let selectedAmount = '';
-function selectAmount(el, val) {
-  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedAmount = val;
-  document.getElementById('custom-row').style.display = val === 'custom' ? 'flex' : 'none';
-}
-function selectUse(el) {
-  document.querySelectorAll('.use-opt').forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-}
-function selectPM(el) {
-  document.querySelectorAll('.pm-chip').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-}
-function updateCurrency() {
-  const curr = document.getElementById('d-currency').value;
-  const symbols = {GHS:'GHS',USD:'USD',GBP:'£',EUR:'€',AUD:'AUD'};
-  const amts = {
-    GHS:['50','100','200','500','1000'],
-    USD:['10','25','50','100','250'],
-    GBP:['10','20','50','100','200'],
-    EUR:['10','20','50','100','200'],
-    AUD:['15','30','75','150','300']
-  };
-  const s = symbols[curr] || curr;
-  const a = amts[curr] || amts.GHS;
-  const btns = document.querySelectorAll('.amount-btn');
-  btns.forEach((b,i) => {
-    if(i < 5) b.textContent = s+' '+parseInt(a[i]).toLocaleString();
-  });
-  document.getElementById('curr-badge').textContent = s;
-}
-function submitDonate() {
-  document.getElementById('d-success').classList.add('show');
-  setTimeout(()=>document.getElementById('d-success').classList.remove('show'), 8000);
-}
 </script>
 </body>
 </html>
