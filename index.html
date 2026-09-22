@@ -256,6 +256,19 @@ nav {
 .hero-title em {
   font-style:italic; color:var(--gold);
   display:block;
+  animation: unfailing-love-reveal 1.2s cubic-bezier(.2,.8,.2,1) .35s both, unfailing-love-glow 3.5s ease-in-out 1.8s infinite;
+  transform-origin:left center;
+}
+@keyframes unfailing-love-reveal {
+  0% { opacity:0; transform:translateY(22px) scale(.96); letter-spacing:.04em; }
+  100% { opacity:1; transform:translateY(0) scale(1); letter-spacing:0; }
+}
+@keyframes unfailing-love-glow {
+  0%,100% { text-shadow:0 0 0 rgba(232,184,109,0); }
+  50% { text-shadow:0 0 20px rgba(232,184,109,.35); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .hero-title em { animation:none; }
 }
 
 .hero-verse {
@@ -845,7 +858,7 @@ footer {
     <div class="prayer-modal-media">
       <img class="prayer-modal-image" src="images/Sep-popup.jpeg" alt="Global Fasting and Prayers announcement">
     </div>
-    <div class="prayer-modal-content">
+ed hero     <div class="prayer-modal-content">
       <span class="section-label">Weekly Prayer Announcement</span>
       <h2 id="prayer-modal-title">Global Fasting <span>&amp; Prayers</span></h2>
       <p>Set aside time each week to seek God and intercede for the salvation of souls, young people, prisoners, leaders, and nations around the world. Everyone is welcome to join this online Prayergelism gathering.</p>
