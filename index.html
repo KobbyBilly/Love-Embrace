@@ -127,8 +127,9 @@ nav {
 /* Weekly prayer popup */
 .prayer-modal { display:none; position:fixed; inset:0; z-index:200; background:rgba(26,14,5,.78); padding:24px; align-items:center; justify-content:center; }
 .prayer-modal.open { display:flex; }
-.prayer-modal-card { position:relative; display:grid; grid-template-columns:minmax(260px, .9fr) 1.1fr; max-width:920px; max-height:90vh; overflow:auto; background:var(--white); border-radius:16px; box-shadow:0 24px 80px rgba(0,0,0,.35); }
-.prayer-modal-image { width:100%; height:100%; min-height:320px; object-fit:cover; }
+.prayer-modal-card { position:relative; display:grid; grid-template-columns:minmax(300px, .95fr) 1.05fr; max-width:1000px; max-height:90vh; overflow:auto; background:var(--white); border-radius:16px; box-shadow:0 24px 80px rgba(0,0,0,.35); align-items:stretch; }
+.prayer-modal-media { min-height:0; display:flex; align-items:center; justify-content:center; background:var(--deep); overflow:hidden; }
+.prayer-modal-image { display:block; width:100%; height:auto; max-height:100%; object-fit:contain; }
 .prayer-modal-content { padding:42px 38px; }
 .prayer-modal-content h2 { font-size:2.2rem; color:var(--deep); line-height:1.05; margin:8px 0 14px; }
 .prayer-modal-content h2 span { color:var(--gold); }
@@ -137,7 +138,7 @@ nav {
 .prayer-detail { padding:11px 14px; background:var(--gold-pale); border-radius:6px; color:var(--warm); font-size:.85rem; }
 .prayer-detail strong { color:var(--deep); }
 .prayer-close { position:absolute; top:12px; right:14px; border:0; background:var(--white); color:var(--deep); width:34px; height:34px; border-radius:50%; font-size:1.4rem; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.15); }
-@media(max-width:700px) { .prayer-modal-card { grid-template-columns:1fr; max-height:92vh; } .prayer-modal-image { max-height:230px; min-height:0; } .prayer-modal-content { padding:28px 24px; } .prayer-modal-content h2 { font-size:1.9rem; } }
+@media(max-width:700px) { .prayer-modal-card { grid-template-columns:1fr; max-height:92vh; } .prayer-modal-media { max-height:38vh; } .prayer-modal-image { max-height:38vh; } .prayer-modal-content { padding:28px 24px; } .prayer-modal-content h2 { font-size:1.9rem; } }
 
 /* Floating site actions and scroll progress */
 .scroll-progress { position:fixed; top:0; left:0; z-index:300; width:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold-light)); transition:width .1s linear; }
@@ -841,7 +842,9 @@ footer {
 <div class="prayer-modal open" id="prayer-modal" role="dialog" aria-modal="true" aria-labelledby="prayer-modal-title">
   <div class="prayer-modal-card">
     <button class="prayer-close" type="button" onclick="closePrayerModal()" aria-label="Close prayer and fasting announcement">&times;</button>
-    <img class="prayer-modal-image" src="images/Sep-popup.jpeg" alt="Global Fasting and Prayers announcement">
+    <div class="prayer-modal-media">
+      <img class="prayer-modal-image" src="images/Sep-popup.jpeg" alt="Global Fasting and Prayers announcement">
+    </div>
     <div class="prayer-modal-content">
       <span class="section-label">Weekly Prayer Announcement</span>
       <h2 id="prayer-modal-title">Global Fasting <span>&amp; Prayers</span></h2>
