@@ -125,6 +125,7 @@ nav {
 .page.active { display:block; }
 
 /* Weekly prayer popup */
+body.modal-open { overflow:hidden; }
 .prayer-modal { display:none; position:fixed; inset:0; z-index:200; background:rgba(26,14,5,.78); padding:24px; align-items:center; justify-content:center; }
 .prayer-modal.open { display:flex; }
 .prayer-modal-card { position:relative; display:grid; grid-template-columns:minmax(300px, .95fr) 1.05fr; max-width:1000px; max-height:90vh; overflow:auto; background:var(--white); border-radius:16px; box-shadow:0 24px 80px rgba(0,0,0,.35); align-items:stretch; }
@@ -852,13 +853,13 @@ footer {
   </button>
 </div>
 
-<div class="prayer-modal open" id="prayer-modal" role="dialog" aria-modal="true" aria-labelledby="prayer-modal-title">
+<div class="prayer-modal" id="prayer-modal" role="dialog" aria-modal="true" aria-labelledby="prayer-modal-title">
   <div class="prayer-modal-card">
     <button class="prayer-close" type="button" onclick="closePrayerModal()" aria-label="Close prayer and fasting announcement">&times;</button>
     <div class="prayer-modal-media">
       <img class="prayer-modal-image" src="images/Sep-popup.jpeg" alt="Global Fasting and Prayers announcement">
     </div>
-ed hero     <div class="prayer-modal-content">
+    <div class="prayer-modal-content">
       <span class="section-label">Weekly Prayer Announcement</span>
       <h2 id="prayer-modal-title">Global Fasting <span>&amp; Prayers</span></h2>
       <p>Set aside time each week to seek God and intercede for the salvation of souls, young people, prisoners, leaders, and nations around the world. Everyone is welcome to join this online Prayergelism gathering.</p>
@@ -2019,11 +2020,41 @@ function toggleMenu() {
 function closeMenu() {
   document.getElementById('mobile-menu').classList.remove('open');
 }
-function closePrayerModal() {
-  document.getElementById('prayer-modal').classList.remove('open');
+const prayerModal = document.getElementById('prayer-modal');
+const prayerModalSeenKey = 'loveEmbracePrayerModalSeen';
+
+function setPrayerModalState(isOpen) {
+  prayerModal.classList.toggle('open', isOpen);
+  document.body.classList.toggle('modal-open', isOpen);
 }
+
+function closePrayerModal() {
+  setPrayerModalState(false);
+  try {
+    localStorage.setItem(prayerModalSeenKey, 'true');
+  } catch (error) {
+    // Ignore storage failures in restricted environments.
+  }
+}
+
 function openPrayerModal() {
-  document.getElementById('prayer-modal').classList.add('open');
+  setPrayerModalState(true);
+  try {
+    localStorage.removeItem(prayerModalSeenKey);
+  } catch (error) {
+    // Ignore storage failures in restricted environments.
+  }
+}
+
+function initPrayerModal() {
+  try {
+    const hasSeenModal = localStorage.getItem(prayerModalSeenKey) === 'true';
+    if (!hasSeenModal) {
+      setTimeout(() => setPrayerModalState(true), 700);
+    }
+  } catch (error) {
+    // Ignore storage failures in restricted environments.
+  }
 }
 function scrollToTop() {
   window.scrollTo({top:0, behavior:'smooth'});
@@ -2039,6 +2070,7 @@ function updateScrollActions() {
 }
 window.addEventListener('scroll', updateScrollActions, {passive:true});
 updateScrollActions();
+initPrayerModal();
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
